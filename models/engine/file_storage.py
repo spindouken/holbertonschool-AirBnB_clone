@@ -22,7 +22,7 @@ class FileStorage:
         dictionary = {}
         for key, value in FileStorage.__objects.items():
             dictionary[key] = value.to_dict()
-        with open(FileStorage.__file_path, "w") as f:
+        with open(FileStorage.__file_path, "w", encoding="utf-8") as f:
             json.dump(FileStorage.__objects, f)
 
     def reload(self):
@@ -30,7 +30,7 @@ class FileStorage:
         JSON file (__file_path) exists; otherwise, do nothing.
         If the file doesn't exist, no exception is raised"""
         try:
-            with open(FileStorage.__file_path, "r") as f:
+            with open(FileStorage.__file_path, "r", encoding="utf-8") as f:
                 FileStorage.__objects = json.load(f)
         except FileNotFoundError:
             pass
