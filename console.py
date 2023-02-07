@@ -5,7 +5,7 @@ import cmd
 
 class HBNBCommand(cmd.Cmd):
     """based command interpreter for BNB clone"""
-        prompt = '(hbnb) '
+    prompt = '(hbnb) '
 
     def do_quit(self, arg):
         """You're just going to quit, eh?!"""
@@ -14,6 +14,9 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, arg):
         """Very well, goodbye!"""
         return True
+    
+    def emptyline(self):
+        return False
 
     def do_create(self, arg):
         pass
