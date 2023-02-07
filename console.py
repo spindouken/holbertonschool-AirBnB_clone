@@ -4,7 +4,7 @@ import cmd
 
 
 class HBNBCommand(cmd.Cmd):
-    """foundational interpreter class"""
+    """foundational class for the interpreter"""
     prompt = '(hbnb) '
 
     def do_quit(self, arg):
