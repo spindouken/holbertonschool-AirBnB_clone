@@ -12,7 +12,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_EOF(self, arg):
-        """exits the interpreter if user types CTL+D (EOF command)"""
+        """exits the interpreter when user types CTL+D (EOF command)"""
         return True
     
     def emptyline(self):
