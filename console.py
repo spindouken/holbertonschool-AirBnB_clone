@@ -1,18 +1,18 @@
 #!/usr/bin/python3
-"""based console"""
+"""module containing code for command interpreter"""
 import cmd
 
 
 class HBNBCommand(cmd.Cmd):
-    """based command interpreter for BNB clone"""
+    """foundational class for the interpreter"""
     prompt = '(hbnb) '
 
     def do_quit(self, arg):
-        """You're just going to quit, eh?!"""
+        """exits the program if the user types the quit command"""
         return True
 
     def do_EOF(self, arg):
-        """Very well, goodbye!"""
+        """exits the interpreter when user types CTL+D (EOF command)"""
         return True
     
     def emptyline(self):
