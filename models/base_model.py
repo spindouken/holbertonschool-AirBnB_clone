@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""placeholder text"""
+"""This module contains the class BaseModel"""
 from datetime import datetime
 import uuid
 import models
@@ -7,7 +7,7 @@ import models
 
 class BaseModel:
     def __init__(self, *args, **kwargs):
-        """Placeholder
+        """Main superclass body
         strptime() - create datetime object from given string
         """
         if kwargs:
@@ -24,16 +24,16 @@ class BaseModel:
             models.storage.new(self)
 
     def __str__(self):
-        """placeholder"""
+        """prints string representation of data object for printing"""
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
-        """placeholder"""
+        """updates datetime and saves object"""
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
-        """placeholder"""
+        """returns dictionary with all object data"""
         lexicon = self.__dict__.copy()
         lexicon['__class__'] = self.__class__.__name__
         lexicon['created_at'] = self.created_at.isoformat()
