@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This module contains the class BaseModel"""
+"""BaseModel module (class and its functions)"""
 from datetime import datetime
 import uuid
 import models
@@ -34,8 +34,12 @@ class BaseModel:
 
     def to_dict(self):
         """returns dictionary with all object data"""
-        lexicon = self.__dict__.copy()
-        lexicon['__class__'] = self.__class__.__name__
-        lexicon['created_at'] = self.created_at.isoformat()
-        lexicon['updated_at'] = self.created_at.isoformat()
-        return lexicon
+        lexicon = self.__dict__
+        new_dict = {}
+        new_dict["__class__"] = type(self).__name__
+        for key, value in lexicon.items():
+            if key == 'created_at' or key == 'updated_at':
+                new_dict[key] = value.isoformat()
+            else:
+                new_dict[key] = value
+        return new_dict
