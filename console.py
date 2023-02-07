@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-
 """based console"""
-
 import cmd
+
 
 class HBNBCommand(cmd.Cmd):
     """based command interpreter for BNB clone"""
