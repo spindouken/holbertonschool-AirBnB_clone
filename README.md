@@ -2,16 +2,16 @@
 
 <br><br>
 # About
-This project is the first stage of creating an AirBNB clone for Holberton's Higher Level Programming course. In this project we build a custom command-line interface for data management using all the skills we've learned in Python.
+This project is the first phase in the AirBNB clone for the Higher Level Programming course at Holberton. For this project we create a custom data management CLI comprising all we have learned so far in Python.
 <br><br>
 # Console
-The console is the command line interace which allows user to create allowed classes, delete classes, and add attributes to classes. This console works in both interactive and non-interacive mode.
+The console is a command line interface which will allow users to create allowed classes, delete classes, and add attributes to classes. This console will work in interactive and non-interacive mode.
 
 
 # How to use <br>
 ## Interactive Mode
 
-First launch the console:
+Launch the console:
 
 ```
 /AirBnb_clone$ ./console.py
