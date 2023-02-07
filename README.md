@@ -26,7 +26,7 @@ Example:<br>
 
 ## Non-Interacive Mode<br>
 
-To use in non-interactive mode echo the commands and pipe it to console.py
+To use in non-interactive mode echo the commands and pipe to console.py
 
 Example:<br>
 ```
@@ -94,7 +94,7 @@ Example:<br>
 
 Example:<br>
 ```
-(hbnb) update user x9247f3d-0g51-4f12-bd70-59c236afb7ls email "johndoe@email.com"
+(hbnb) update user x9247f3d-0g51-4f12-bd70-59c236afb7ls email "jerrygarcia@email.com"
 ```
 
 ## quit -- quit the console
@@ -108,7 +108,7 @@ Example:<br>
 
 ## EOF -- quit the console
 ### Usage:
-Press Ctrl + Z on keyboard<br>
+Press Ctrl + Z<br>
 <br>
 
 # Classes
