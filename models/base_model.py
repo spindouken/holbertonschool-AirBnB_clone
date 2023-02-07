@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """placeholder text"""
-import datetime import datetime
+from datetime import datetime
 import uuid
 import models
 
