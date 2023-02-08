@@ -26,7 +26,7 @@ Example:<br>
 
 ## Non-Interacive Mode<br>
 
-For non-interactive mode, e cho commands and pipe into console.py
+For non-interactive mode, echo allowed commands and pipe into console.py
 
 Example:<br>
 ```
