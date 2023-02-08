@@ -12,20 +12,18 @@ from models.review import Review
 from models import storage
 
 
-	valid_class = {
-	    "BaseModel": BaseModel,
-	    "User": User,
-	    "State": State,
-	    "City": City,
-	    "Amenity": Amenity,
-	    "Place": Place,
-	    "Review": Review
-	}
-
-
 class HBNBCommand(cmd.Cmd):
     """foundational class for the interpreter"""
     prompt = '(hbnb) '
+    valid_class = {
+        "BaseModel": BaseModel,
+        "User": User,
+        "State": State,
+        "City": City,
+        "Amenity": Amenity,
+        "Place": Place,
+        "Review": Review
+    }
 
     def do_quit(self, arg):
         """exits the program if the user types the quit command"""
