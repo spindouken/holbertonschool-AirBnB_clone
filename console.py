@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """module containing the code for command interpreter"""
-
 import cmd
 from models.base_model import BaseModel
 from models import storage
@@ -25,7 +24,7 @@ class HBNBCommand(cmd.Cmd):
         return True
     
     def emptyline(self):
-        return False
+        pass
 
     def do_create(self, arg):
         args = shlex.split(args)
