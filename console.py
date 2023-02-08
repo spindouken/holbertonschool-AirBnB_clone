@@ -16,6 +16,7 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
     classes = ["Review", "Place", "State",
                "User", "BaseModel", "City", "Amenity"]
+    cantDeal = ["created_at", "updated_at", "id"]
 
     def do_quit(self, arg):
         """exits the program if the user types the quit command"""
@@ -24,7 +25,7 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, arg):
         """exits the interpreter when user types CTL+D (EOF command)"""
         return True
-    
+
     def emptyline(self):
         """hard pass"""
         pass
@@ -100,42 +101,35 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, arg):
         """Updates an instance based on class name and id
         by adding or updating attribute"""
-        arg_list = arg.split()
-        if len(arg_list) == 0:
-            print("** class name missing **")
-            return
-        class_name = arg_list[0]
-        if class_name not in models.storage.all():
+        args = arg.split(maxsplit=3)
+        num_args = len(args)
+        if num_args < 4:
+            if num_args == 0:
+                print("** class name missing **")
+                return
+            elif num_args == 1:
+                print("** instance id missing **")
+                return
+            elif num_args == 2:
+                print("** attribute name missing **")
+                return
+            elif num_args == 3:
+                print("** value missing **")
+                return
+        if args[0] not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
-        if len(arg_list) < 2:
-            print("** instance id missing **")
-            return
-        obj_id = arg_list[1]
-        key = "{}.{}".format(class_name, obj_id)
-        obj = models.storage.all().get(key)
+        key = "{}.{}".format(args[0], args[1])
+        obj = storage.all().get(key)
         if obj is None:
             print("** no instance found **")
             return
-        if len(arg_list) < 3:
-            print("** attribute name missing **")
+        if args[2] in HBNBCommand.cantDeal:
             return
-        attr_name = arg_list[2]
-        if attr_name in ["id", "created_at", "updated_at"]:
-            print("can't update 'id', 'created_at' and 'updated_at'")
-            return
-        if len(arg_list) < 4:
-            print("** value missing **")
-            return
-        attr_value = arg_list[3]
-        attr_type = type(getattr(obj, attr_name))
         try:
-            attr_value = attr_type(attr_value)
-        except:
-            print("** value must be casted to the attribute type")
-            return
-        setattr(obj, attr_name, attr_value)
-        obj.save()
+            setattr(obj, args[2], eval(args[3]))
+        except Exception as error:
+            print(error)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
