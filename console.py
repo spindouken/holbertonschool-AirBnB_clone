@@ -96,7 +96,8 @@ class HBNBCommand(cmd.Cmd):
         if arg not in self.classes:
             print("** class doesn't exist **")
             return
-        print([str(value) for key, value in all_models.items() if key.startswith(arg)])
+        print([str(value) for key, value in all_models.items()
+              if key.startswith(arg)])
 
     def do_update(self, arg):
         """Updates an instance based on class name and id
@@ -130,6 +131,7 @@ class HBNBCommand(cmd.Cmd):
             setattr(obj, args[2], eval(args[3]))
         except Exception as error:
             print(error)
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
