@@ -2,7 +2,7 @@
 """module containing the code for command interpreter"""
 import cmd
 import shlex
-from models.base_model import BaseModel
+from models.base_model import *
 from models import storage
 from models.user import User
 from models.state import State
