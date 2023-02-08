@@ -3,27 +3,18 @@
 
 import cmd
 from models.base_model import BaseModel
+from models import storage
 from models.user import User
 from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
-from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
     """foundational class for the interpreter"""
     prompt = '(hbnb) '
-    valid_class = {
-        "BaseModel": BaseModel,
-        "User": User,
-        "State": State,
-        "City": City,
-        "Amenity": Amenity,
-        "Place": Place,
-        "Review": Review
-    }
 
     def do_quit(self, arg):
         """exits the program if the user types the quit command"""
