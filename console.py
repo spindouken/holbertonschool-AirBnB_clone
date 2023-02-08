@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """module containing the code for command interpreter"""
 import cmd
+import shlex
 from models.base_model import BaseModel
 from models import storage
 from models.user import User
