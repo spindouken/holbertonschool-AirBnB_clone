@@ -26,7 +26,12 @@ class testBasedBaseModel(unittest.TestCase):
         self.assertIn(based.id, str(based))
 
     def test_save(self):
-        pass
+        bm = BaseModel()
+        create = bm.created_at
+        update = bm.updated_at
+        bm.save()
+        self.assertEqual(bm.created_at, create)
+        self.assertNotEqual(bm.updated_at, update)
 
     def test_update(self):
         based = BaseModel()
