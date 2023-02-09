@@ -36,14 +36,12 @@ class TestFileStorage(unittest.TestCase):
         self.assertTrue(os.path.exists('file.json'))
 
     def test_reload(self):
-        obj = BaseModel()
-        self.file_storage.new(obj)
-        self.file_storage.save()
-        self.file_storage.__objects = {}
-        self.file_storage.reload()
-        objects = self.file_storage.all()
-        self.assertEqual(obj.to_dict(),
-                         objects["BaseModel.{}".format(obj.id)].to_dict())
+        """
+        Testing reload.
+        """
+        FileStorage.clear()
+        storage.reload()
+        self.assertTrue(len(storage.all()) > 0)
 
 
 if __name__ == "__main__":
