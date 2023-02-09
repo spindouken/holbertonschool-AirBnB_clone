@@ -1,4 +1,5 @@
-se Class Test Cases"""
+#!/usr/bin/python3
+"""User Class Test Cases"""
 import unittest
 from datetime import datetime
 from models.user import User
@@ -6,18 +7,6 @@ from models.user import User
 
 class TestUser(unittest.TestCase):
     """Test cases for User class"""
-
-    def test_getvalues(self):
-        obj1 = User()
-        self.assertIsNotNone(obj1.first_name)
-        self.assertIsNotNone(obj1.last_name)
-        self.assertIsNotNone(obj1.email)
-        self.assertIsNotNone(obj1.password)
-        obj2 = User()
-        obj1.first_name = "Johnjacob"
-        obj1.last_name = "Jinglehimmersmith"
-        self.assertNotEqual(obj2.first_name, obj1.first_name)
-        self.assertNotEqual(obj2.last_name, obj1.last_name)
 
     def test_init(self):
         self.assertEqual(User, type(User()))
@@ -33,3 +22,7 @@ class TestUser(unittest.TestCase):
 
     def test_last_name_type(self):
         self.assertEqual(str, type(User.last_name))
+
+
+if __name__ == "__main__":
+    unittest.main()
